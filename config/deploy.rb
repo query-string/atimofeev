@@ -16,7 +16,7 @@ set :rvm_type, :user
 
 set :repository, "git@github.com:atimofeev/#{application}.git"
 set :scm, 'git'
-set :branch, 'site'
+set :branch, 'master'
 set :scm_verbose, false
 set :deploy_via, :remote_cache
 

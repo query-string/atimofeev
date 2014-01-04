@@ -1,0 +1,38 @@
+| <!doctype html>
+html
+  head
+    meta charset="utf-8"
+      meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"
+        title= current_page.data.title || "The Middleman"
+        = stylesheet_link_tag 'style'
+        = javascript_include_tag  'script'
+  body class=(page_classes)
+
+    .card
+
+      .card__photo
+      h1.card__name Alexander Timofeev
+      p.card__profession Rails and Ruby developer, Front-end architect
+
+      ul.card__facts.card__facts--contact
+        li.card__fact
+          i.fa.fa-fw.fa-calendar
+          | 27 years
+        li.card__fact
+          i.fa.fa-fw.fa-map-marker
+          | Bangkok, Thailand
+        li.card__fact
+          i.fa.fa-fw.fa-envelope
+          | #{mail_to 'atimofeev@reactant.ru', 'atimofeev@reactant.ru'}
+        li.card__fact
+          i.fa.fa-fw.fa-skype
+          | #{link_to 'atimofeev.reactant', 'skype:atimofeev.reactant'}
+
+      ul.card__facts.card__facts--social
+        li.card__fact= link_to nil, 'http://github.com/query-string', title: 'github repositories', target: :blank, class: 'fa fa-github'
+        li.card__fact= link_to nil, 'http://linkedin.com/in/altimofeev', title: 'Linkedin profile', target: :blank, class: 'fa fa-linkedin'
+        li.card__fact= link_to nil, 'http://twitter.com/ATimofeev', title: 'Twitter account', target: :blank, class: 'fa fa-twitter'
+
+    = yield
+
+    .footer

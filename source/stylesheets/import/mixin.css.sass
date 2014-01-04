@@ -1,0 +1,35 @@
+@mixin automargin
+  margin: 0 auto
+
+@mixin wrapper
+  width: $width-layout
+  +automargin
+
+@mixin background( $color, $path, $repeat )
+  background: $color url($path) $repeat 0 0
+  background-image: inline-image($path)
+
+@mixin absolute( $t, $l )
+  position: absolute
+  top: $t
+  left: $l
+
+@mixin float100
+  float: left
+  width: 100%
+
+@mixin indent
+  text-indent: -777em
+
+@mixin colorize( $color )
+  +link-colors($color,$color,$color,$color,$color)
+
+@mixin td_underline
+  text-decoration: underline
+  &:hover
+    text-decoration:  none
+
+@mixin td_none
+  text-decoration:  none
+  &:hover
+    text-decoration: underline

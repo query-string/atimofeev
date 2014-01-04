@@ -1,0 +1,27 @@
+@import '../glue'
+$b: 'layout'
+
++global-reset
++font-face('Futura New Light', font-files('fonts/FuturaNewLight.ttf', 'fonts/FuturaNewLight.otf', 'fonts/FuturaNewLight.eot', 'fonts/FuturaNewLight.woff', 'fonts/FuturaNewLight.svg'))
+
+html
+  height: 100%
+  font-family: $font-family--futura
+  font-size: $font-size
+  color: $font-color
+  background: $body--bg image-url('layout/html.png') repeat-x 0 0
+  ::selection
+    background: $color--red
+    color: $color--white
+  body
+    width: $width-layout
+    height: 100%
+    +automargin
+  a
+    +link-colors($link-color, $link-color--hover, $link-color--focus, $link-color--active, $link-color--visited)
+    text-decoration: underline
+    &:hover
+      text-decoration: none
+  input, textarea, select
+    outline-width: 0
+    outline: none

@@ -1,0 +1,65 @@
+@import '../glue'
+$b: 'chart'
+
+.#{$b}
+  position: relative
+  width: 480px
+  height: 300px
+  +automargin
+  margin-bottom: 34px
+
+.#{$b}--donut
+  width: 272px
+  height: 272px
+  +automargin
+
+.#{$b}--branches
+  font-size: $font-size--less
+.#{$b}--branch
+  position: absolute
+  top: 0
+  left: 0
+  width: 130px
+  height: 50px
+  display: none
+  strong
+    position: absolute
+    top: 0
+    left: 0
+.#{$b}--branch__ruby
+  left: 50px
+  background: image-url('chart/branch/ruby.png') no-repeat 100% 10px
+  strong
+    top: 5px
+    left: 4px
+.#{$b}--branch__rails
+  top: 10px
+  left: 310px
+  background: image-url('chart/branch/rails.png') no-repeat 0 100%
+  strong
+    top: 0px
+    left: 96px
+.#{$b}--branch__js
+  top: 190px
+  left: 330px
+  background: image-url('chart/branch/js.png') no-repeat 0 0
+  strong
+    top: 32px
+    left: 97px
+.#{$b}--branch__html
+  width: 170px
+  top: 240px
+  left: 50px
+  background: image-url('chart/branch/html.png') no-repeat 100% 0
+  strong
+    top: 33px
+    left: 0
+.#{$b}--branch__ui
+  width: 160px
+  height: 14px
+  top: 130px
+  left: 0
+  background: image-url('chart/branch/ui.png') no-repeat 100% 50%
+  strong
+    top: 0
+    left: 0

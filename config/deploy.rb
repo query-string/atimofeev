@@ -11,7 +11,7 @@ set :deploy_to, "#{app_dir}"
 set :user, application
 set :use_sudo, false
 
-set :rvm_ruby_string, '1.9.3-head'
+set :rvm_ruby_string, '2.1.0-head'
 set :rvm_type, :user
 
 set :repository, "git@github.com:query-string/#{application}.git"

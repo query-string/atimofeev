@@ -14,7 +14,7 @@ set :use_sudo, false
 set :rvm_ruby_string, '1.9.3-head'
 set :rvm_type, :user
 
-set :repository, "git@github.com:atimofeev/#{application}.git"
+set :repository, "git@github.com:query-string/#{application}.git"
 set :scm, 'git'
 set :branch, 'master'
 set :scm_verbose, false

@@ -4,6 +4,7 @@ require 'rvm/capistrano'
 require 'bundler/capistrano'
 
 server 'atimofeev.ru', :app, :web, :db, primary: true
+ssh_options[:port] = 10113
 
 set :application, 'atimofeev'
 set :app_dir, "/home/#{application}"
@@ -11,7 +12,7 @@ set :deploy_to, "#{app_dir}"
 set :user, application
 set :use_sudo, false
 
-set :rvm_ruby_string, '2.1.0-head'
+set :rvm_ruby_string, '2.1.1'
 set :rvm_type, :user
 
 set :repository, "git@github.com:query-string/#{application}.git"

@@ -8,3 +8,4 @@ gem 'jquery-middleman'
 
 gem 'capistrano'
 gem 'rvm-capistrano'
+gem 'therubyracer'

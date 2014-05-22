@@ -37,6 +37,7 @@ GEM
       thor (>= 0.14, < 2.0)
     json (1.8.1)
     kramdown (1.3.1)
+    libv8 (3.16.14.3)
     listen (1.3.1)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
@@ -88,6 +89,7 @@ GEM
       ffi (>= 0.5.0)
     rb-kqueue (0.2.0)
       ffi (>= 0.5.0)
+    ref (1.0.5)
     rvm-capistrano (1.5.1)
       capistrano (~> 2.15.4)
     sass (3.2.14)
@@ -105,6 +107,9 @@ GEM
       sprockets (~> 2.0)
       tilt (~> 1.1)
     temple (0.6.7)
+    therubyracer (0.12.1)
+      libv8 (~> 3.16.14.0)
+      ref
     thor (0.18.1)
     tilt (1.4.1)
     uglifier (2.4.0)
@@ -121,4 +126,5 @@ DEPENDENCIES
   middleman-livereload (~> 3.1.0)
   rvm-capistrano
   slim
+  therubyracer
   wdm (~> 0.1.0)

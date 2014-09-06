@@ -4,7 +4,7 @@ require 'rvm/capistrano'
 require 'bundler/capistrano'
 
 server 'atimofeev.ru', :app, :web, :db, primary: true
-ssh_options[:port] = 10113
+ssh_options[:port] = 11322
 
 set :application, 'atimofeev'
 set :app_dir, "/home/#{application}"

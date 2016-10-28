@@ -6,9 +6,13 @@ $b: 'card'
   text-align: center
 
 .#{$b}__photo
+  width: 200px
   height: 200px
+  margin: 0 auto
   margin-bottom: 13px
   background: image-url('card/photo.png') no-repeat 50% 0
+  &:hover
+    background-position: 50% -200px
 
 .#{$b}__name
   color: $color--red

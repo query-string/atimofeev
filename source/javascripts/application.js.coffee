@@ -22,7 +22,7 @@ jQuery ->
 
       data: [
         # Yellow – Rails
-        value: 100
+        value: 70
         color: "#f7ca00"
       ,
         # Orange – JavaScript
@@ -38,7 +38,7 @@ jQuery ->
         color: "#a6cacb"
       ,
         # Red – Ruby
-        value: 70
+        value: 90
         color: "#ad1023"
       ]
 

@@ -19,7 +19,7 @@ html
       ul.card__facts.card__facts--contact
         li.card__fact
           i.fa.fa-fw.fa-calendar
-          | 30 years
+          | #{distance_of_time_in_words Date.parse("16.08.1986"), Date.today}
         li.card__fact
           i.fa.fa-fw.fa-map-marker
           | Bangkok, Thailand

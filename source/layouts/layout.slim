@@ -26,9 +26,10 @@ html
         li.card__fact
           i.fa.fa-fw.fa-envelope
           | #{mail_to 'alex@query-string.com', 'alex@query-string.com'}
-        li.card__fact
-          i.fa.fa-fw.fa-skype
-          | #{link_to 'atimofeev.reactant', 'skype:atimofeev.reactant'}
+        //
+          li.card__fact
+            i.fa.fa-fw.fa-skype
+            | #{link_to 'atimofeev.reactant', 'skype:atimofeev.reactant'}
 
       ul.card__facts.card__facts--social
         li.card__fact= link_to nil, 'http://github.com/query-string', title: 'github repositories', target: :blank, class: 'fa fa-github'

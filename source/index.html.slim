@@ -3,7 +3,7 @@ title: Alex Timofeev &#9733; Full-stack Ruby developer, Front-end architect
 ---
 
 .block.block__highlight
-  | Since 2005, I’ve been building websites in various capacities, primarily utilizing Ruby on Rails technology and specializing in front-end development. Attentive to details and very self-organized, I’m successfully working from my home office for over #{distance_of_time_in_words Date.parse("July, 2005"), Date.today}, always delivering on time. For my next challenge, I'm interested in a full-time remote job as a Ruby (on and off Rails) Engineer with involvement in front-end development. I'm looking for remote job at the first place, but will be happy to consider any relocation options afterwards.
+  | Since 2005, I’ve been building websites in various capacities, primarily utilizing Ruby on Rails technology and specializing in front-end development. Attentive to details and very self-organized, I’m successfully working from my home office for over #{distance_of_time_in_words Date.parse("July, 2005"), Date.today}, always delivering on time. For my next challenge, I'm interested in a full-time remote job as a Ruby (on and off Rails) Engineer with involvement in front-end development. I'm looking for remote job at the first place, but will be happy to consider any relocation opportunities afterwards.
 
 .block
   h2.block__title Technical skills
@@ -28,11 +28,20 @@ title: Alex Timofeev &#9733; Full-stack Ruby developer, Front-end architect
   p I'm highly skilled at not only using but also contributing to some popular (and not so popular) ruby gems and open source projects. I have created gazzilions of applications from the ground up, some of which are being actively used today.
   p In all of my projects I have used: MySQL, PostgreSQL, MongoDB databases, Thin, Unicorn and Puma application servers. I have deep understanding of RSpec and TDD approaches. Big fan of GitHub, I use it on a daily basis, and deploy via Capistrano.
 
-.block
-  h2.block__title Communication
+//
+  .block
+    h2.block__title Communication
 
 .block
   h2.block__title Work history
+  .work
+    .work__title
+      b
+        = link_to nil, 'https://www.icelab.com.au/', target: :blank, class: 'fa fa-fw fa-external-link'
+        | Icelab (Full stack developer)
+      i May, 2014 &mdash; November, 2016
+    p Icelab is one of the most experienced Australian teams of designers and developers. I am proud that I worked with these brilliant minds for two and half years and learnt from them a lot... I had participated as a back-end, front-end (and sometimes even as a devops) engeneer in the development of wide range of projects and services for scientists, universities, ticket majors and book shops. Some of these projects #{link_to "were listed here", "https://www.icelab.com.au/work", target: :blank}.
+    p In these years my stack of tools and technologies has drastically changed from simple Rails back-end + some-assets-pipeline based self-hosted applications to complex Rails engines with React.js front-end hosted on Heroku or AWS Docker containers. Even more – the game had changed once again when Icelab migrated from Ruby on Rails to #{link_to "dry-rb", "http://dry-rb.org/", target: :blank} and Webpack for almost all new projects...
   .work
     .work__title
       b

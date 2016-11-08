@@ -49,6 +49,14 @@ set :css_dir, 'stylesheets'
 set :js_dir, 'javascripts'
 set :images_dir, 'images'
 
+configure :development do
+  set :host, "http://localhost:4567"
+end
+
+configure :build do
+  set :host, "http://www.query-string.com"
+end
+
 activate :i18n, langs: [:en]
 
 # Build-specific configuration

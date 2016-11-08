@@ -54,7 +54,7 @@ configure :development do
 end
 
 configure :build do
-  set :host, "http://www.query-string.com"
+  set :host, "http://www.query-string.com/"
 end
 
 activate :i18n, langs: [:en]

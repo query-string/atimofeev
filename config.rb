@@ -55,7 +55,7 @@ set :position_title, "Full-stack Ruby developer, Front-end Architect"
 set :og_description, "For my next challenge, I'm interested in a full-time remote job as a Ruby (on and off Rails) Engineer with involvement in front-end development."
 set :github_handle, "query-string"
 set :twitter_handle, "query_string"
-set :linkedin_handle, "altimofeev"
+set :linkedin_handle, "query-string"
 set :email, "alex@query-string.com"
 
 configure :development do

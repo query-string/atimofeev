@@ -1,0 +1,13 @@
+language: ruby
+rvm: 2.4.1
+
+cache:
+  bundler: true
+  directories:
+    - $TRAVIS_BUILD_DIR/build
+
+script:
+  - 'if [ ${TRAVIS_BRANCH} = "master" ]; then
+        bundle exec middleman build --no-parallel;
+        bundle exec middleman s3_sync;
+    fi'

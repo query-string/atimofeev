@@ -18,8 +18,8 @@ html
 
     title #{config[:full_name]} &#9733; #{config[:position_title]}
 
-    = stylesheet_link_tag 'style'
-    = javascript_include_tag  'script'
+    = stylesheet_link_tag 'site'
+
   body class=(page_classes)
 
     <a href="https://github.com/#{config[:github_handle]}/query-string.com" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
@@ -47,10 +47,14 @@ html
 
       ul.card__facts.card__facts--social
         li.card__fact= link_to nil, "http://github.com/#{config[:github_handle]}", title: 'github repositories', target: :blank, class: 'fa fa-github'
-        li.card__fact= link_to nil, "http://linkedin.com/in/#{linkedin_handle}", title: 'Linkedin profile', target: :blank, class: 'fa fa-linkedin'
+        li.card__fact= link_to nil, "http://linkedin.com/in/#{config[:linkedin_handle]}", title: 'Linkedin profile', target: :blank, class: 'fa fa-linkedin'
         li.card__fact= link_to nil, "http://twitter.com/#{config[:twitter_handle]}", title: 'Twitter account', target: :blank, class: 'fa fa-twitter'
 
     = yield
 
     .footer
       <script type="text/javascript">(function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter16719469 = new Ya.Metrika({id:16719469, webvisor:true, clickmap:true, trackLinks:true, accurateTrackBounce:true, trackHash:true}); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks");</script><noscript><div><img src="//mc.yandex.ru/watch/16719469" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+
+    = javascript_include_tag 'vendor/ready'
+    = javascript_include_tag 'vendor/chart'
+    = javascript_include_tag 'site'

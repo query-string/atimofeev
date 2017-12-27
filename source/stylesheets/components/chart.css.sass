@@ -1,4 +1,3 @@
-@import '../glue'
 $b: 'chart'
 
 .#{$b}
@@ -21,11 +20,16 @@ $b: 'chart'
   left: 0
   width: 130px
   height: 50px
-  display: none
+  visibility: hidden
+  opacity: 0
+  transition: visibility 0s, opacity 0.5s linear
   strong
     position: absolute
     top: 0
     left: 0
+.#{$b}--branch__visible
+  visibility: visible
+  opacity: 1
 .#{$b}--branch__ruby
   left: 50px
   background: image-url('chart/branch/ruby.png') no-repeat 100% 10px

@@ -1,18 +1,5 @@
 window.Application =
 
-  shuffle: (arr) ->
-    j = undefined
-    x = undefined
-    i = arr.length
-
-    while i
-      j = Math.floor(Math.random() * i)
-      x = arr[--i]
-      arr[i] = arr[j]
-      arr[j] = x
-
-    arr
-
   chart:
     ctx:  document.getElementById('myChart').getContext('2d')
     data: [
@@ -48,11 +35,12 @@ window.Application =
       animateRotate: true
       animateScale: false
       onAnimationComplete: ->
-        timeout = 0
-        Application.shuffle($('#myBranches').find('li')).each ->
-          el = @
+        timeout  = 0
+        branches = document.getElementsByClassName('chart--branch')
+        [].forEach.call branches, (el) ->
           setTimeout (->
-            $(el).fadeIn('slow')
+            #el.style.display = 'block'
+            el.classList.add('chart--branch__visible')
           ), timeout
           timeout += 400
 

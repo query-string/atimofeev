@@ -8,6 +8,7 @@ cache:
 
 script:
   - 'if [ ${TRAVIS_BRANCH} = "master" ]; then
-        bundle exec middleman build --no-parallel;
+        bundle exec middleman contentful;
+        bundle exec middleman build;
         bundle exec middleman s3_sync;
     fi'

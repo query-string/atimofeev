@@ -16,13 +16,8 @@ page '/*.txt', layout: false
 # With alternative layout
 # page '/path/to/file.html', layout: 'other_layout'
 
-set :full_name,       'Alex Timofeev'
-set :position_title,  'Full-stack Ruby developer, Front-end Architect'
+set :host,            ENV['SITE_URL']
 set :og_description,  "For my next challenge, I'm interested in a full-time remote job as a Ruby (on and off Rails) Engineer with involvement in front-end development."
-set :github_handle,   'query-string'
-set :twitter_handle,  'query_string'
-set :linkedin_handle, 'query-string'
-set :email,           'alex@query-string.com'
 
 # Proxy pages
 # https://middlemanapp.com/advanced/dynamic-pages/
@@ -39,11 +34,11 @@ set :email,           'alex@query-string.com'
 # Methods defined in the helpers block are available in templates
 # https://middlemanapp.com/basics/helper-methods/
 
-# helpers do
-#   def some_helper
-#     'Helping'
-#   end
-# end
+helpers do
+  def card
+    @app.data['query-string'].card.map { |c| c[1] }.first
+  end
+end
 
 # Build-specific configuration
 # https://middlemanapp.com/advanced/configuration/#environment-specific-settings
@@ -54,6 +49,14 @@ set :email,           'alex@query-string.com'
 # end
 
 activate :i18n
+
+activate :contentful do |f|
+  f.cda_query     = { limit: 1000 }
+  f.all_entries   = true
+  f.space         = { 'query-string' => ENV['CONTENTFUL_SPACE_ID'] }
+  f.access_token  = ENV['CONTENTFUL_ACCESS_TOKEN']
+  f.content_types = { card: ENV['CONTENTFUL_CARD_TYPE'] }
+end
 
 activate :s3_sync do |s3_sync|
   s3_sync.bucket                     = ENV['AWS_BUCKET']

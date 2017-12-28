@@ -55,6 +55,14 @@ set :email,           'alex@query-string.com'
 
 activate :i18n
 
+activate :contentful do |f|
+  f.cda_query     = { limit: 1000 }
+  f.all_entries   = true
+  f.space         = { 'query-string' => ENV['CONTENTFUL_SPACE_ID'] }
+  f.access_token  = ENV['CONTENTFUL_ACCESS_TOKEN']
+  f.content_types = { card: ENV['CONTENTFUL_CARD_TYPE'] }
+end
+
 activate :s3_sync do |s3_sync|
   s3_sync.bucket                     = ENV['AWS_BUCKET']
   s3_sync.region                     = ENV['AWS_REGION']

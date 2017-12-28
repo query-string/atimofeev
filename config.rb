@@ -75,3 +75,10 @@ activate :s3_sync do |s3_sync|
   s3_sync.index_document             = 'index.html'
   s3_sync.error_document             = '404.html'
 end
+
+activate :cloudfront do |cf|
+  cf.access_key_id     = ENV['AWS_KEY']
+  cf.secret_access_key = ENV['AWS_SECRET']
+  cf.distribution_id   = ENV['CF_DISTRIBUTION']
+  cf.filter = /\.html$/i
+end

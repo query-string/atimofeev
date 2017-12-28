@@ -11,4 +11,5 @@ script:
         bundle exec middleman contentful;
         bundle exec middleman build;
         bundle exec middleman s3_sync;
+        bundle exec middleman invalidate;
     fi'

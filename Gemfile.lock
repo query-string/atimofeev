@@ -1,3 +1,13 @@
+GIT
+  remote: git://github.com/query-string/middleman-cloudfront.git
+  revision: d59aeb5ad0abb362526ee56f6110a3af1f377874
+  branch: upgrade-fog-aws
+  specs:
+    middleman-cloudfront (0.2.1)
+      fog-aws (>= 0.1.1)
+      middleman-cli (>= 3.0)
+      middleman-core (>= 3.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -175,6 +185,7 @@ DEPENDENCIES
   foreman
   middleman (~> 4.2)
   middleman-autoprefixer (~> 2.7)
+  middleman-cloudfront!
   middleman-dotenv
   middleman-s3_sync
   mime-types

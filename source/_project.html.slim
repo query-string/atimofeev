@@ -1,0 +1,6 @@
+.work
+  .work__title
+    b
+      = link_to nil, project.url, target: :blank, class: "fa fa-fw fa-#{project.icon}"
+      | #{project.name}
+  p= project.description

@@ -31,29 +31,14 @@
 .block
   h2.block__title Work history
   - for work in works
-    .work
-      .work__title
-        b
-          = link_to nil, work.url, target: :blank, class: 'fa fa-fw fa-external-link'
-          | #{work.company} (#{work.role} – #{work.location})
-        p
-          i #{work.started.strftime('%B, %Y')} &mdash; #{work.finished.strftime('%B, %Y')}
-      = Markdown.new(work.description).to_html
+    = partial 'work', locals: { work: work }
 
 .block
   h2.block__title Personal projects
   - for project in projects
-    .work
-      .work__title
-        b
-          = link_to nil, project.url, target: :blank, class: "fa fa-fw fa-#{project.icon}"
-          | #{project.name}
-      p= project.description
+    = partial 'project', locals: { project: project }
 
 .block
   h2.block__title Instruments and technologies
   - for technology in technologies
-    .work
-      .work__title
-        b= technology.relevance
-      p= technology.description
+    = partial 'technology', locals: { technology: technology }

@@ -9,15 +9,14 @@ end
 # https://middlemanapp.com/basics/layouts/
 
 # Per-page layout changes
-page '/*.xml', layout: false
+page '/*.xml',  layout: false
 page '/*.json', layout: false
-page '/*.txt', layout: false
+page '/*.txt',  layout: false
 
 # With alternative layout
 # page '/path/to/file.html', layout: 'other_layout'
 
-set :host,            ENV['SITE_URL']
-set :og_description,  "For my next challenge, I'm interested in a full-time remote job as a Ruby (on and off Rails) Engineer with involvement in front-end development."
+set :host, ENV['SITE_URL']
 
 # Proxy pages
 # https://middlemanapp.com/advanced/dynamic-pages/
@@ -38,6 +37,18 @@ helpers do
   def card
     @app.data['query-string'].card.map { |c| c[1] }.first
   end
+
+  def works
+    @app.data['query-string'].works.map { |w| w[1] }.sort_by(&:started).reverse
+  end
+
+  def projects
+    @app.data['query-string'].projects.map { |pr| pr[1] }
+  end
+
+  def technologies
+    @app.data['query-string'].technologies.map { |t| t[1] }
+  end
 end
 
 # Build-specific configuration
@@ -55,7 +66,7 @@ activate :contentful do |f|
   f.all_entries   = true
   f.space         = { 'query-string' => ENV['CONTENTFUL_SPACE_ID'] }
   f.access_token  = ENV['CONTENTFUL_ACCESS_TOKEN']
-  f.content_types = { card: ENV['CONTENTFUL_CARD_TYPE'] }
+  f.content_types = { card: 'card', works: 'works', projects: 'projects', technologies: 'technologies' }
 end
 
 activate :s3_sync do |s3_sync|

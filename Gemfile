@@ -12,3 +12,4 @@ gem 'wdm', '~> 0.1', platforms: [:mswin, :mingw]
 gem 'slim'
 gem 'foreman'
 gem 'mime-types'
+gem 'redcarpet'

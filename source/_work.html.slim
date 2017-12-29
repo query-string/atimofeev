@@ -1,0 +1,8 @@
+.work
+  .work__title
+    b
+      = link_to nil, work.url, target: :blank, class: 'fa fa-fw fa-external-link'
+      | #{work.company} (#{work.role} – #{work.location})
+    p
+      i #{work.started.strftime('%B, %Y')} &mdash; #{work.finished.strftime('%B, %Y')}
+  = Markdown.new(work.description).to_html

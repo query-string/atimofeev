@@ -16,8 +16,7 @@ page '/*.txt', layout: false
 # With alternative layout
 # page '/path/to/file.html', layout: 'other_layout'
 
-set :host,            ENV['SITE_URL']
-set :og_description,  "For my next challenge, I'm interested in a full-time remote job as a Ruby (on and off Rails) Engineer with involvement in front-end development."
+set :host, ENV['SITE_URL']
 
 # Proxy pages
 # https://middlemanapp.com/advanced/dynamic-pages/

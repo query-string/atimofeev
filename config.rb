@@ -9,9 +9,9 @@ end
 # https://middlemanapp.com/basics/layouts/
 
 # Per-page layout changes
-page '/*.xml', layout: false
+page '/*.xml',  layout: false
 page '/*.json', layout: false
-page '/*.txt', layout: false
+page '/*.txt',  layout: false
 
 # With alternative layout
 # page '/path/to/file.html', layout: 'other_layout'
@@ -38,6 +38,10 @@ helpers do
     @app.data['query-string'].card.map { |c| c[1] }.first
   end
 
+  def works
+    @app.data['query-string'].works.map { |w| w[1] }.sort_by(&:started).reverse
+  end
+
   def projects
     @app.data['query-string'].projects.map { |pr| pr[1] }
   end
@@ -62,7 +66,7 @@ activate :contentful do |f|
   f.all_entries   = true
   f.space         = { 'query-string' => ENV['CONTENTFUL_SPACE_ID'] }
   f.access_token  = ENV['CONTENTFUL_ACCESS_TOKEN']
-  f.content_types = { card: 'card', projects: 'projects', technologies: 'technologies' }
+  f.content_types = { card: 'card', works: 'works', projects: 'projects', technologies: 'technologies' }
 end
 
 activate :s3_sync do |s3_sync|

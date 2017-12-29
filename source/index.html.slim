@@ -30,31 +30,15 @@
 
 .block
   h2.block__title Work history
-  .work
-    .work__title
-      b
-        = link_to nil, 'https://www.icelab.com.au/', target: :blank, class: 'fa fa-fw fa-external-link'
-        | Icelab (Full stack developer – Melbourne, Australia)
-      p
-        i May, 2014 &mdash; November, 2016
-    p Icelab is one of the most experienced Australian teams of designers and developers. I am proud that I worked with these brilliant minds for two and half years and learnt from them a lot... I had participated as a back-end, front-end (and sometimes even as a devops) engeneer in the development of wide range of projects and services for scientists, universities, ticket majors and book shops. Some of these projects #{link_to "were listed here", "https://www.icelab.com.au/work", target: :blank}.
-    p In these years my stack of tools and technologies has drastically changed from simple Rails back-end + some-assets-pipeline based self-hosted applications to complex Rails engines with React.js front-ends, Influx DB datastores, Elasticsearch or Solr based search engines, hosted on Heroku or on AWS EC2 as Docker containers. And the game had changed once again when Icelab migrated from Ruby on Rails to a collection of next-generation Ruby libraries #{link_to "dry-rb", "http://dry-rb.org/", target: :blank} and Webpack for almost all of the new projects...
-  .work
-    .work__title
-      b
-        = link_to nil, 'http://www.vltramarine.ru/', target: :blank, class: 'fa fa-fw fa-external-link'
-        | CODE RED / Vltramarine (Full stack engineer – Moscow, Russia)
-      p
-        i October, 2011 &mdash; April, 2015
-    p Created an advanced multi-user blogging platform with Ruby on Rails 3.2 from the ground up, which included live commentable posts and photo feeds, user and role management, integration with social networks, and banner ad management. Developed an advanced #{link_to 'Medium-like style', 'http://www.medium.com', target: :blank} content publication system, a warehouse management system, and an online store.
-  .work
-    .work__title
-      b
-        = link_to nil, 'http://www.liveinternet.ru', target: :blank, class: 'fa fa-fw fa-external-link'
-        | LiveInternet (UI/UX, Front-end – Moscow, Russia)
-      p
-        i July, 2005 &mdash; May, 2014
-    p Envisioned, developed and implemented unique ideas - including design, mark-ups, programming, optimization, and support - for everything that concerns or is connected with front-end and UI of one of the largest blogging platforms in Russia. Developed designs and markups for various email newsletters. Improved designs and mark-ups for the mobile version of the site.
+  - for work in works
+    .work
+      .work__title
+        b
+          = link_to nil, work.url, target: :blank, class: 'fa fa-fw fa-external-link'
+          | #{work.company} (#{work.role} – #{work.location})
+        p
+          i #{work.started.strftime('%B, %Y')} &mdash; #{work.finished.strftime('%B, %Y')}
+      = Markdown.new(work.description).to_html
 
 .block
   h2.block__title Personal projects

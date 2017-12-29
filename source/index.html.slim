@@ -73,15 +73,8 @@
 
 .block
   h2.block__title Instruments and technologies
-  .work
-    .work__title
-      b Used actively
-    p Ruby, Rails, dry-rb, rom-rb, Roda, PostgreSQL, Elasticsearch, JavaScript/jQuery, React.js, CoffeeScript, HTML5, Slim/HAML, CSS/SASS, Compass, Webpack, Heroku, Dokku, Docker, SSH, Unix/Linux/OSX, Nginx, Puma, TDD, BDD, RSpec, Capybara, Git, GitHub
-  .work
-    .work__title
-      b Used when needed
-    p Sinatra, Middleman, Node.js, MySQL, SQL, Solr, InfluxDB, MongoDB, Sidekiq, Backbone.js, Underscore.js, Capistrano, Thin, Unicorn, Passenger, Cucumber, Agile
-  .work
-    .work__title
-      b Used, but mostly forgotten
-    p Prototype.js, Scriptaculous.js, Apache, PHP, SVN, Mercurial, FTP, OpenVZ, Dovecot, Postfix, IMAP, Bind
+  - technologies.each do |technology|
+    .work
+      .work__title
+        b= technology.relevance
+      p= technology.description

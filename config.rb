@@ -37,6 +37,10 @@ helpers do
   def card
     @app.data['query-string'].card.map { |c| c[1] }.first
   end
+
+  def technologies
+    @app.data['query-string'].technologies.map { |t| t[1] }
+  end
 end
 
 # Build-specific configuration
@@ -54,7 +58,7 @@ activate :contentful do |f|
   f.all_entries   = true
   f.space         = { 'query-string' => ENV['CONTENTFUL_SPACE_ID'] }
   f.access_token  = ENV['CONTENTFUL_ACCESS_TOKEN']
-  f.content_types = { card: ENV['CONTENTFUL_CARD_TYPE'] }
+  f.content_types = { card: 'card', technologies: 'technologies' }
 end
 
 activate :s3_sync do |s3_sync|

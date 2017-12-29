@@ -38,6 +38,10 @@ helpers do
     @app.data['query-string'].card.map { |c| c[1] }.first
   end
 
+  def projects
+    @app.data['query-string'].projects.map { |pr| pr[1] }
+  end
+
   def technologies
     @app.data['query-string'].technologies.map { |t| t[1] }
   end
@@ -58,7 +62,7 @@ activate :contentful do |f|
   f.all_entries   = true
   f.space         = { 'query-string' => ENV['CONTENTFUL_SPACE_ID'] }
   f.access_token  = ENV['CONTENTFUL_ACCESS_TOKEN']
-  f.content_types = { card: 'card', technologies: 'technologies' }
+  f.content_types = { card: 'card', projects: 'projects', technologies: 'technologies' }
 end
 
 activate :s3_sync do |s3_sync|

@@ -58,22 +58,17 @@
 
 .block
   h2.block__title Personal projects
-  .work
-    .work__title
-      b
-        = link_to nil, 'http://www.rubyhire.me', target: :blank, class: 'fa fa-fw fa-external-link'
-        | RubyHire
-    p RoR based, resume as a service platform for 300+ Ruby and Rails developers (mostly from post-USSR countries).
-  .work
-    .work__title
-      b
-        = link_to nil, 'https://github.com/query-string/lumos', target: :blank, class: 'fa fa-fw fa-github'
-        | lumos
-    p Ruby library that helps to easily wrap any object to ascii-style markup and make it perceptible amongst ususal Rails log mess.
+  - for project in projects
+    .work
+      .work__title
+        b
+          = link_to nil, project.url, target: :blank, class: "fa fa-fw fa-#{project.icon}"
+          | #{project.name}
+      p= project.description
 
 .block
   h2.block__title Instruments and technologies
-  - technologies.each do |technology|
+  - for technology in technologies
     .work
       .work__title
         b= technology.relevance

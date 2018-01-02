@@ -34,20 +34,22 @@ set :host, ENV['SITE_URL']
 # https://middlemanapp.com/basics/helper-methods/
 
 helpers do
+  def entries(name)
+    @app.data['query-string'].send(name).map { |m| m[1] }
+  end
+
+  %i(cards projects technologies).each do |name|
+    define_method(name) do
+      entries(name)
+    end
+  end
+
   def card
-    @app.data['query-string'].card.map { |c| c[1] }.first
+    cards.first
   end
 
   def works
-    @app.data['query-string'].works.map { |w| w[1] }.sort_by(&:started).reverse
-  end
-
-  def projects
-    @app.data['query-string'].projects.map { |pr| pr[1] }
-  end
-
-  def technologies
-    @app.data['query-string'].technologies.map { |t| t[1] }
+    entries('works').sort_by(&:started).reverse
   end
 end
 
@@ -66,7 +68,7 @@ activate :contentful do |f|
   f.all_entries   = true
   f.space         = { 'query-string' => ENV['CONTENTFUL_SPACE_ID'] }
   f.access_token  = ENV['CONTENTFUL_ACCESS_TOKEN']
-  f.content_types = { card: 'card', works: 'works', projects: 'projects', technologies: 'technologies' }
+  f.content_types = { cards: 'cards', works: 'works', projects: 'projects', technologies: 'technologies' }
 end
 
 activate :s3_sync do |s3_sync|

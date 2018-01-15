@@ -29,6 +29,8 @@ set :host, ENV['SITE_URL']
 #   },
 # )
 
+proxy '/blog', 'blog/index.html'
+
 # Helpers
 # Methods defined in the helpers block are available in templates
 # https://middlemanapp.com/basics/helper-methods/
@@ -62,6 +64,7 @@ end
 # end
 
 activate :i18n
+activate :directory_indexes
 
 activate :contentful do |f|
   f.cda_query     = { limit: 1000 }

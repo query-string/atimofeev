@@ -1,0 +1,9 @@
+= wrap_layout :layout do
+  .card
+    = link_to nil, '/', class: 'card__photo', style: "background-image: url(#{card.photo.url})"
+    h1.card__name #{card.name}
+    p.card__profession
+      = link_to 'About', '/'
+      = link_to 'Articles', '/blog'
+
+  = yield

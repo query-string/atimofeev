@@ -29,10 +29,12 @@ set :host, ENV['SITE_URL']
 #   },
 # )
 
-proxy '/blog', 'blog/index.html'
-@app.data['query-string'].send('articles').each do |article|
-  proxy "/blog/#{article[1].slug}.html", 'blog/article.html', locals: { article: article[1] }
-end
+proxy '/blog', 'blog/index.html', layout: :blog
+@app.data['query-string'].send('articles').each { |article|
+  proxy "/blog/#{article[1].slug}.html", 'blog/article.html',
+    layout: :blog,
+    locals: { article: article[1] }
+  }
 
 # Helpers
 # Methods defined in the helpers block are available in templates

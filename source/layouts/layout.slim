@@ -25,28 +25,6 @@ html
     = link_to "https://github.com/#{card.github}/query-string.com", target: :blank do
       img alt=('Fork me on GitHub') src='https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png' style=('position: absolute; top: 0; right: 0; border: 0;') /
 
-    .card
-
-      = link_to nil, '/', class: 'card__photo', style: "background-image: url(#{card.photo.url})"
-      h1.card__name #{card.name}
-      p.card__profession #{card.field}
-
-      ul.card__facts.card__facts--contact
-        li.card__fact
-          i.fa.fa-fw.fa-calendar
-          | #{distance_of_time_in_words card.dob, Date.today}
-        li.card__fact
-          i.fa.fa-fw.fa-map-marker
-          | #{card.location}
-        li.card__fact
-          i.fa.fa-fw.fa-envelope
-          | #{mail_to card.email, card.email}
-
-      ul.card__facts.card__facts--social
-        li.card__fact= link_to nil, "http://github.com/#{card.github}", title: 'Github repositories', target: :blank, class: 'fa fa-github'
-        li.card__fact= link_to nil, "http://linkedin.com/in/#{card.linkedin}", title: 'Linkedin profile', target: :blank, class: 'fa fa-linkedin'
-        li.card__fact= link_to nil, "http://twitter.com/#{card.twitter}", title: 'Twitter account', target: :blank, class: 'fa fa-twitter'
-
     = yield
 
     .footer

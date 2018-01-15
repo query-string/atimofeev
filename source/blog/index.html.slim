@@ -1,1 +1,3 @@
-h1 Lalala
+- for article in articles
+  h1= link_to article.title, "/blog/#{article.slug}"
+  p= article.date

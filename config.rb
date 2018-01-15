@@ -30,6 +30,9 @@ set :host, ENV['SITE_URL']
 # )
 
 proxy '/blog', 'blog/index.html'
+@app.data['query-string'].send('articles').each do |article|
+  proxy "/blog/#{article[1].slug}.html", 'blog/article.html', locals: { article: article[1] }
+end
 
 # Helpers
 # Methods defined in the helpers block are available in templates
@@ -40,7 +43,7 @@ helpers do
     @app.data['query-string'].send(name).map { |m| m[1] }
   end
 
-  %i(cards projects technologies).each do |name|
+  %i(cards projects technologies articles).each do |name|
     define_method(name) do
       entries(name)
     end
@@ -71,7 +74,7 @@ activate :contentful do |f|
   f.all_entries   = true
   f.space         = { 'query-string' => ENV['CONTENTFUL_SPACE_ID'] }
   f.access_token  = ENV['CONTENTFUL_ACCESS_TOKEN']
-  f.content_types = { cards: 'cards', works: 'works', projects: 'projects', technologies: 'technologies' }
+  f.content_types = { cards: 'cards', works: 'works', projects: 'projects', technologies: 'technologies', articles: 'articles' }
 end
 
 activate :s3_sync do |s3_sync|
